@@ -1,0 +1,28 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "animate.css": "^4.1.0",
+    "bootstrap-4-grid": "^3.4.0",
+    "jquery": "^3.5.1",
+    "moment": "^2.27.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "scripts": {
+    "ghpublish": "git subtree push --prefix dist origin gh-pages"
+  },
+  "author": "pandu wijaya",
+  "license": "ISC"
+}

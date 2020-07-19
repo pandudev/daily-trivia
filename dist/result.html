@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+
+  <body>
+    <header class="header d-flex align-items-center">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <a href="#" class="d-md-none"
+          ><img src="./assets/img/icon-back.png" alt="back"
+        /></a>
+        <a href="#" class="bold">Daily Trivia</a>
+        <p class="d-none d-md-block">
+          SCORE: <span class="bold">0000014</span>
+        </p>
+        <a href="#" class="d-flex align-items-center"
+          ><img src="./assets/img/icon-reset.png" alt="reset" class="mr-2" />
+          <p class="d-none d-md-block">Reset</p>
+        </a>
+      </div>
+    </header>
+    <main class="main d-flex justify-content-center align-items-center py-3">
+      <div id="category" class="container align-self-start">
+        <div class="main__header d-flex justify-content-center">
+          <div
+            class="d-flex align-items-center justify-content-center main__header__logo"
+          >
+            <img
+              src="./assets/img/logo-trivia.png"
+              alt="Daily Trivia"
+              class="mx-1 game-logo"
+            />
+            <img
+              src="./assets/img/YLC-logo.png"
+              alt="YLC"
+              class="mx-1 ylc-logo"
+            />
+          </div>
+        </div>
+
+        <div class="main__content container py-3">
+          <div
+            class="row flex-column justify-content-center align-items-center"
+          >
+            <div class="result card d-flex col-md-6 mb-3">
+              <div class="card__body py-5">
+                <div class="d-flex align-items-center justify-content-around">
+                  <img
+                    src="./assets/img/trophy.png"
+                    alt="trophy"
+                    class="result__icon"
+                  />
+                  <div>
+                    <h3 class="bold">Your Score:</h3>
+                    <h1 class="bold">800</h1>
+                  </div>
+                  <img
+                    src="./assets/img/trophy.png"
+                    alt="trophy"
+                    class="result__icon"
+                  />
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-around mt-3"
+                >
+                  <div>
+                    <h3 class="bold">correct:</h3>
+                    <h2 class="bold text-green">11</h2>
+                  </div>
+                  <div>
+                    <h3 class="bold">wrong:</h3>
+                    <h2 class="bold text-red">4</h2>
+                  </div>
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-center flex-column mt-3"
+                >
+                  <h3 class="bold mb-3">share to:</h3>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <a
+                      href="#"
+                      class="btn d-flex mx-2 align-items-center justify-content-center btn--setting btn--navy"
+                    >
+                      <img
+                        src="./assets/img/icon-facebook.png"
+                        alt="facebook"
+                      />
+                    </a>
+                    <a
+                      href="#"
+                      class="btn d-flex mx-2 align-items-center justify-content-center btn--setting btn--blue"
+                    >
+                      <img src="./assets/img/icon-twitter.png" alt="twitter" />
+                    </a>
+                    <a
+                      href="#"
+                      class="btn d-flex mx-2 align-items-center justify-content-center btn--setting btn--green"
+                    >
+                      <img
+                        src="./assets/img/icon-whatsapp.png"
+                        alt="whatsapp"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              href="./category.html"
+              class="btn btn--primary btn--yellow mt-3 d-flex justify-content-center align-items-center"
+            >
+              <p class="btn__text btn__text--yellow">PLAY AGAIN</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

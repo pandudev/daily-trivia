@@ -1,0 +1,17 @@
+html,
+body {
+  font-family: $spartan;
+  font-size: 16px;
+  color: $black;
+}
+
+body {
+  &.modal {
+    position: fixed;
+    width: 100vw;
+  }
+}
+
+.hide {
+  display: none !important;
+}

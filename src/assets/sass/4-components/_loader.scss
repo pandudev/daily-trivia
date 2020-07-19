@@ -1,0 +1,39 @@
+.loader {
+  height: 36px;
+  width: 320px;
+  border-radius: 40px;
+  background-color: $white;
+  position: relative;
+
+  @include breakpoint(md) {
+    width: 400px;
+  }
+
+  &__percentage {
+    color: $white;
+    font-weight: bold;
+    z-index: +1;
+  }
+
+  &__progress {
+    position: absolute;
+    content: "";
+    right: 3px;
+    top: 3px;
+    left: 3px;
+    bottom: 3px;
+    background-color: $grey;
+    border-radius: 40px;
+    overflow: hidden;
+
+    &__bar {
+      width: 1%;
+      background: linear-gradient(
+        180deg,
+        #fab837 0%,
+        #ffcd6c 54.76%,
+        #cc8e14 116.67%
+      );
+    }
+  }
+}

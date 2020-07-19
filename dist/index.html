@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header d-flex align-items-center">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <a id="backButton" class="d-md-none"
+          ><img src="./assets/img/icon-back.png" alt="back"
+        /></a>
+        <p id="gameTitle" class="bold">Daily Trivia</p>
+        <p id="headerScore">SCORE: <span class="bold">000000</span></p>
+        <a id="resetButton" class="d-flex align-items-center"
+          ><img src="./assets/img/icon-reset.png" alt="reset" class="mr-2" />
+          <p class="d-none d-md-block">Reset</p>
+        </a>
+      </div>
+    </header>
+    <main class="main d-flex flex-column align-items-stretch py-3">
+      <div class="main__header container d-flex justify-content-between">
+        <div
+          id="headerLogo"
+          class="d-flex align-items-center justify-content-center main__header__logo"
+        >
+          <img
+            src="./assets/img/logo-trivia.png"
+            alt="Daily Trivia"
+            class="mx-1 game-logo"
+          />
+          <img
+            src="./assets/img/YLC-logo.png"
+            alt="YLC"
+            class="mx-1 ylc-logo"
+          />
+        </div>
+        <div
+          id="timerButton"
+          class="main__header__timer d-flex align-items-start"
+        >
+          <a
+            class="btn btn--timer d-flex align-items-center justify-content-between"
+          >
+            <div
+              class="btn--timer__counter d-flex justify-content-center align-items-center"
+            >
+              <div id="timerText" class="btn--timer__counter__text bold">
+                00:00:00
+              </div>
+            </div>
+            <img
+              id="pauseIcon"
+              src="./assets/img/icon-pause.png"
+              class="btn--timer__counter__icon"
+              alt="Pause"
+            />
+            <img
+              id="playIcon"
+              src="./assets/img/icon-play.png"
+              class="btn--timer__counter__icon hide"
+              alt="PLay"
+            />
+          </a>
+        </div>
+        <div
+          class="main__header__button d-flex justify-content-end align-self-start ml-auto"
+        >
+          <a
+            id="hintButton"
+            href="#"
+            class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1"
+          >
+            <img src="./assets/img/icon-hint.png" alt="Hint" />
+          </a>
+          <a
+            id="openSettingButton"
+            class="btn btn--setting btn--red d-flex justify-content-center align-items-center mx-1"
+          >
+            <img src="./assets/img/icon-setting.png" alt="Setting" />
+          </a>
+          <div id="settingMenu" class="main__header__button--hover hide">
+            <a
+              id="closeSettingButton"
+              class="btn btn--setting btn--red d-flex justify-content-center align-items-center mx-1 mb-3"
+            >
+              <img src="./assets/img/icon-close.png" alt="Setting" />
+            </a>
+            <a
+              id="toggleSoundButton"
+              class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1 mb-3"
+            >
+              <img
+                id="soundOnIcon"
+                src="./assets/img/icon-sound-on.png"
+                alt="Setting"
+              />
+              <img
+                id="muteIcon"
+                src="./assets/img/icon-sound-off.png"
+                class="hide"
+                alt="Setting"
+              />
+            </a>
+            <a
+              class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1 mb-3"
+            >
+              <img src="./assets/img/icon-asc.png" alt="Setting" />
+            </a>
+            <a
+              class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1 mb-3"
+            >
+              <img src="./assets/img/icon-desc.png" alt="Setting" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="intro"
+        class="intro d-flex align-items-center justify-content-center flex-fill"
+      >
+        <div class="main__content d-flex flex-column align-items-center">
+          <div class="main__logo d-flex flex-column align-items-center mb-5">
+            <img
+              src="./assets/img/logo-trivia.png"
+              alt="Daily Trivia"
+              class="mb-3 game-logo"
+            />
+            <img
+              src="./assets/img/YLC-logo.png"
+              alt="YLC"
+              class="ylc-logo align-self-end"
+            />
+          </div>
+          <div
+            id="loader"
+            class="loader d-none d-flex align-items-center justify-content-center"
+          >
+            <div class="loader__percentage">
+              <p id="progressText"></p>
+            </div>
+            <div class="loader__progress d-flex">
+              <div id="loadingBar" class="loader__progress__bar"></div>
+            </div>
+          </div>
+          <a
+            id="startButton"
+            class="btn btn--primary btn--yellow d-flex align-items-center justify-content-center animate__bounceIn"
+          >
+            <p class="btn__text btn__text--yellow">START</p>
+          </a>
+        </div>
+      </div>
+
+      <div id="category" class="container flex-fill d-flex flex-column">
+        <div class="main__title my-3">
+          <h2 id="dateText"></h2>
+          <h1 class="d-none d-md-block">SELECT CATEGORY</h1>
+        </div>
+        <div class="main__content">
+          <div id="categoriesList" class="category row"></div>
+        </div>
+        <div
+          class="main__pagination mt-auto align-items-center d-flex justify-content-between pb-md-3"
+        >
+          <a
+            id="prevIndexButton"
+            class="btn btn--setting btn--red d-flex justify-content-center align-items-center"
+          >
+            <img src="./assets/img/icon-back.png" alt="back" />
+          </a>
+          <a
+            id="nextIndexButton"
+            class="btn btn--setting btn--red d-flex justify-content-center align-items-center ml-auto"
+          >
+            <img src="./assets/img/icon-next.png" alt="next" />
+          </a>
+        </div>
+      </div>
+
+      <div id="play" class="container flex-fill d-flex flex-column">
+        <div class="main__content pt-3">
+          <div class="play">
+            <div id="questionNumber" class="play__question__number"></div>
+            <a class="play__report d-flex align-items-center">
+              <img src="./assets/img/icon-flag.png" alt="report" class="mr-2" />
+              <p class="play__report__text">REPORT</p>
+            </a>
+
+            <div class="card d-flex mb-3">
+              <div
+                class="card__body d-flex align-items-center justify-content-center p-3"
+              >
+                <p id="questionText" class="play__question-text mt-4"></p>
+              </div>
+            </div>
+            <div id="answerButtons" class="play__answer row px-lg-5">
+              <div class="play__answer__selector col-12 col-md-6 mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="result" class="container flex-fill d-flex flex-column">
+        <div class="main__content container py-3">
+          <div
+            class="row flex-column justify-content-center align-items-center"
+          >
+            <div class="result card d-flex col-md-6">
+              <div class="card__body py-5">
+                <div class="d-flex align-items-center justify-content-around">
+                  <img
+                    src="./assets/img/trophy.png"
+                    alt="trophy"
+                    class="result__icon"
+                  />
+                  <div>
+                    <h3 class="bold">Your Score:</h3>
+                    <h1 id="resultScoreText" class="black"></h1>
+                  </div>
+                  <img
+                    src="./assets/img/trophy.png"
+                    alt="trophy"
+                    class="result__icon"
+                  />
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-around mt-3"
+                >
+                  <div>
+                    <h3 class="bold">correct:</h3>
+                    <h2 id="correctText" class="black text-green">11</h2>
+                  </div>
+                  <div>
+                    <h3 class="bold">wrong:</h3>
+                    <h2 id="wrongText" class="black text-red">4</h2>
+                  </div>
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-center flex-column mt-3"
+                >
+                  <h3 class="bold mb-3">share to:</h3>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <a
+                      class="btn d-flex mx-2 align-items-center justify-content-center btn--setting btn--navy"
+                    >
+                      <img
+                        src="./assets/img/icon-facebook.png"
+                        alt="facebook"
+                      />
+                    </a>
+                    <a
+                      class="btn d-flex mx-2 align-items-center justify-content-center btn--setting btn--blue"
+                    >
+                      <img src="./assets/img/icon-twitter.png" alt="twitter" />
+                    </a>
+                    <a
+                      class="btn d-flex mx-2 align-items-center justify-content-center btn--setting btn--green"
+                    >
+                      <img
+                        src="./assets/img/icon-whatsapp.png"
+                        alt="whatsapp"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              id="playAgainButton"
+              class="btn btn--primary btn--yellow mt-3 d-flex justify-content-center align-items-center"
+            >
+              <p class="btn__text btn__text--yellow">PLAY AGAIN</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      id="resetModal"
+      class="modal d-flex align-items-center justify-content-center hide"
+    >
+      <div class="modal__body d-flex">
+        <div
+          class="modal__body__content py-5 px-3 d-flex justify-content-center flex-column align-items-center"
+        >
+          <h1 class="bold mb-3">
+            You’re about to reset the game. All your progress will be lost. Do
+            you want to proceed?
+          </h1>
+          <div class="my-3 d-flex justify-content-between modal__button">
+            <a
+              id="resetModalYesButton"
+              class="btn btn--primary btn--yellow d-flex justify-content-center align-items-center"
+            >
+              <p class="btn__text btn__text--yellow">YES</p>
+            </a>
+            <a
+              id="resetModalNoButton"
+              class="btn btn--primary btn--green d-flex justify-content-center align-items-center"
+            >
+              <p class="btn__text btn__text--green">NO</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="pauseModal"
+      class="modal d-flex align-items-center justify-content-center hide"
+    >
+      <div class="modal__body d-flex">
+        <div
+          class="modal__body__content p-5 d-flex justify-content-center flex-column align-items-center"
+        >
+          <h1 class="bold">Game Paused</h1>
+          <div class="mt-3 d-flex flex-column">
+            <a
+              id="resumeButton"
+              class="btn btn--primary btn--yellow d-flex justify-content-center align-items-center my-2"
+            >
+              <p class="btn__text btn__text--yellow">CONTINUE</p>
+            </a>
+            <a
+              id="surrenderButton"
+              class="btn btn--primary btn--yellow d-flex justify-content-center align-items-center my-2"
+            >
+              <p class="btn__text btn__text--yellow">SURRENDER</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

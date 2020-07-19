@@ -1,0 +1,48 @@
+// breakpoints min width
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+// fonts
+@font-face {
+  font-family: "BadaBoom BB";
+  src: url("./../fonts/badabb__-webfont.woff2") format("woff2"),
+    url("./../fonts/badabb__-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SpartanMB-Regular";
+  src: url("./../fonts/SpartanMB-Regular.woff") format("woff"),
+    url("./../fonts/SpartanMB-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$spartan: "SpartanMB-Regular";
+$badaboom: "BadaBoom BB";
+
+// colors
+$white: #fff;
+$grey: #bdbdbd;
+$grey--light: #dbdbdb;
+$black: #333333;
+$black--matte: #4f4f4f;
+
+$orange: #ff8a1e;
+$orange--dark: #d97112;
+$tosca: #33bedc;
+$tosca--dark: #1490ab;
+$green: #1dca4d;
+$green--dark: #15a53d;
+$yellow: #fab837;
+$yellow--dark: #d1941c;
+$red: #ed1b33;
+$red--dark: #d11227;
+$blue: #00acee;
+$blue--dark: #0091c9;
+$blue--darkest: #074f92;
+$navy: #3b5998;
+$navy--dark: #335192;

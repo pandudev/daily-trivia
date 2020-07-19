@@ -1,0 +1,58 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+}
+
+// p {
+//   font-size: 16px;
+// }
+
+// .h1 {
+//   font-size: 40px;
+// }
+
+// .h2 {
+//   font-size: 35px;
+// }
+
+// .h3 {
+//   font-size: 30px;
+// }
+
+// .h4 {
+//   font-size: 24px;
+// }
+
+// .h5 {
+//   font-size: 20px;
+// }
+
+// .h6 {
+//   font-size: 18px;
+// }
+
+.bold {
+  font-weight: 700;
+}
+
+.black {
+  font-weight: 700 !important;
+  font-family: sans-serif;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.text-green {
+  color: $green;
+}
+
+.text-red {
+  color: $red;
+}

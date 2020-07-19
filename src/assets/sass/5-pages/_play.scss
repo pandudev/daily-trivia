@@ -1,0 +1,55 @@
+.play {
+  position: relative;
+  border-radius: 10px;
+
+  &__question__number {
+    background-color: $tosca;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    z-index: 12;
+    border-radius: 10px;
+    padding: 18px 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: $white;
+  }
+
+  &__report {
+    background-color: $tosca;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 12;
+    border-radius: 10px;
+    padding: 18px 10px 10px;
+
+    &__text {
+      color: $white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  &__question-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+
+    @include breakpoint(md) {
+      font-size: 40px;
+    }
+  }
+
+  &__answer {
+    counter-reset: answer-counter;
+
+    &__text::before {
+      counter-increment: answer-counter;
+      // margin-right: 1px;
+      content: counter(answer-counter, upper-alpha) ". ";
+    }
+  }
+}

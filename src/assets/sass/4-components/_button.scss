@@ -1,0 +1,224 @@
+.btn {
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: inline-block;
+  cursor: pointer;
+
+  &--dim {
+    opacity: 0.5;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__text {
+    color: $white;
+    position: relative;
+    z-index: +1;
+    font-family: $badaboom;
+    font-size: 35px;
+    letter-spacing: 2.8px;
+    -webkit-text-stroke-width: 1px;
+
+    &--yellow {
+      -webkit-text-stroke-color: $yellow--dark;
+    }
+
+    &--green {
+      -webkit-text-stroke-color: $green--dark;
+    }
+  }
+
+  &--timer {
+    height: 50px;
+    width: 175px;
+    padding: 5px;
+    background-color: $white;
+    box-shadow: 0px 5px 0px $grey;
+
+    @include breakpoint(md) {
+      height: 60px;
+    }
+
+    &__counter {
+      height: 100%;
+      width: 200px;
+      background-color: $grey--light;
+      text-align: center;
+      border-radius: 10px;
+
+      &__text {
+        font-size: 18px;
+      }
+
+      &__icon {
+        height: 40px;
+      }
+    }
+  }
+
+  &--primary {
+    width: 200px;
+    height: 70px;
+
+    &:hover {
+      &::before,
+      &::after {
+        opacity: 0.3;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: url("./../img/button-bottom-right.png");
+      bottom: 0;
+      right: 0;
+      z-index: +1;
+    }
+
+    &::after {
+      position: absolute;
+      content: url("./../img/button-top-left.png");
+      top: 0;
+      left: 0;
+      z-index: +1;
+    }
+  }
+
+  &--wrong {
+    pointer-events: none;
+    background-color: $red !important;
+    box-shadow: 0px 5px 0px $red--dark !important;
+
+    & > .btn--icon {
+      position: absolute;
+      content: url("./../img/icon-close-circle.png");
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+
+      height: 24px;
+    }
+  }
+
+  &--correct {
+    pointer-events: none;
+    background-color: $green !important;
+    box-shadow: 0px 5px 0px $green--dark !important;
+
+    & > .btn--icon {
+      position: absolute;
+      content: url("./../img/icon-check-circle.png");
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+
+      height: 24px;
+    }
+  }
+
+  &--setting {
+    width: 50px;
+    height: 50px;
+
+    @include breakpoint(md) {
+      width: 60px;
+      height: 60px;
+    }
+
+    img {
+      width: 28px;
+
+      @include breakpoint(md) {
+        width: 30px;
+      }
+    }
+  }
+
+  &--answer {
+    height: 50px !important;
+    width: 100%;
+    color: $white;
+    transition: all 0.2s ease-in-out;
+
+    font-size: 14px;
+
+    @include breakpoint(md) {
+      height: 60px !important;
+      font-size: 24px;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        opacity: 0.3;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: url("./../img/button-bottom-right.png");
+      bottom: 0;
+      right: 0;
+      z-index: +1;
+    }
+
+    &::after {
+      position: absolute;
+      content: url("./../img/button-top-left.png");
+      top: 0;
+      left: 0;
+      z-index: +1;
+    }
+  }
+
+  &--red {
+    background-color: $red;
+    box-shadow: 0px 5px 0px $red--dark;
+
+    &:hover {
+      background-color: $red--dark;
+    }
+  }
+
+  &--yellow {
+    background-color: $yellow;
+    box-shadow: 0px 5px 0px $yellow--dark;
+
+    &:hover {
+      background-color: $yellow--dark;
+    }
+  }
+
+  &--navy {
+    background-color: $navy;
+    box-shadow: 0px 5px 0px $navy--dark;
+
+    &:hover {
+      background-color: $navy--dark;
+    }
+  }
+
+  &--blue {
+    background-color: $blue;
+    box-shadow: 0px 5px 0px $blue--dark;
+
+    &:hover {
+      background-color: $blue--dark;
+    }
+  }
+
+  &--green {
+    background-color: $green;
+    box-shadow: 0px 5px 0px $green--dark;
+
+    &:hover {
+      background-color: $green--dark;
+    }
+  }
+}

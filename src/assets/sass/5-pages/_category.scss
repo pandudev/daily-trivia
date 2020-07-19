@@ -1,0 +1,55 @@
+.category {
+  height: 100%;
+  &__item {
+    cursor: pointer;
+    height: 150px;
+    color: $white;
+    padding: 14px;
+    border-radius: 10px;
+
+    position: relative;
+
+    @include breakpoint(md) {
+      height: 220px;
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: url("./../img/icon-shapes.png");
+      top: 10px;
+      right: 10px;
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+
+    &--red {
+      background-color: $red;
+      box-shadow: 0px 5px 0px $red--dark;
+    }
+
+    &--yellow {
+      background-color: $yellow;
+      box-shadow: 0px 5px 0px $yellow--dark;
+    }
+
+    &--green {
+      background-color: $green;
+      box-shadow: 0px 5px 0px $green--dark;
+    }
+
+    &--blue {
+      background-color: $blue;
+      box-shadow: 0px 5px 0px $blue--dark;
+    }
+
+    &--navy {
+      background-color: $navy;
+      box-shadow: 0px 5px 0px $navy--dark;
+    }
+  }
+}

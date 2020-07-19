@@ -1,0 +1,70 @@
+.main {
+  min-height: calc(100vh - 50px);
+  background-image: linear-gradient(
+    164.98deg,
+    $tosca -28.7%,
+    $blue--darkest 157.83%
+  );
+
+  &__header {
+    &__logo {
+      & > .game-logo {
+        height: 50px;
+        filter: drop-shadow(4.21912px 16.8765px 28.1275px rgba(0, 0, 0, 0.15));
+        // max-height: 90px;
+
+        @include breakpoint(md) {
+          height: 70px;
+        }
+      }
+
+      & > .ylc-logo {
+        height: 24px;
+
+        @include breakpoint(md) {
+          height: 36px;
+        }
+      }
+    }
+
+    &__button {
+      position: relative;
+      z-index: 50;
+      &--hover {
+        position: absolute;
+        content: "";
+        top: 0;
+      }
+    }
+  }
+
+  &__logo {
+    & > .game-logo {
+      height: 170px;
+      filter: drop-shadow(4.21912px 16.8765px 28.1275px rgba(0, 0, 0, 0.15));
+
+      @include breakpoint(md) {
+        height: 250px;
+      }
+    }
+
+    & > .ylc-logo {
+      height: 34px;
+    }
+  }
+
+  &__title {
+    h1,
+    h2 {
+      color: $white;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+}

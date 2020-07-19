@@ -1,0 +1,22 @@
+{
+  "Small Breakpoint": {
+    "prefix": "brsm",
+    "body": ["@include breakpoint(sm) {", "$1", "}"],
+    "description": "Small tablets and large smartphones (landscape view)"
+  },
+  "Medium Breakpoint": {
+    "prefix": "brmd",
+    "body": ["@include breakpoint(md) {", "$1", "}"],
+    "description": "Small tablets (portrait view)"
+  },
+  "Large Breakpoint": {
+    "prefix": "brlg",
+    "body": ["@include breakpoint(lg) {", "$1", "}"],
+    "description": "Tablets and small desktops"
+  },
+  "Extra Large Breakpoint": {
+    "prefix": "brxl",
+    "body": ["@include breakpoint(xl) {", "$1", "}"],
+    "description": "Large tablets and desktops"
+  }
+}
