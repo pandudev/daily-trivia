@@ -169,6 +169,8 @@ const showResultPage = () => {
   headerScore.addClass("hide");
   resetButton.addClass("hide");
   headerLogo.removeClass("hide").addClass("mx-auto");
+
+  showScore();
 };
 
 const loading = () => {
@@ -439,8 +441,6 @@ const correctAnswerClicked = () => {
       question_id: qId,
     }),
   }).done((e) => {
-    console.log(e);
-    console.log(qWrong, qCorrect, qReported, qId);
     if (questionIndex + 1 < questionsPerGame) {
       questionIndex++;
       showQuestion();
@@ -524,7 +524,6 @@ $("document").ready(() => {
   toggleSoundButton.click(() => {
     toggleSound();
     playClick();
-    // console.log("set sound mute / unmute");
   });
 
   startButton.click(() => {
