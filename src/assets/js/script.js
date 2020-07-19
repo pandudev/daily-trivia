@@ -94,11 +94,11 @@ let loadingTime = 0;
 let percentage = 1;
 
 // Audio
-const clickAudio = new Audio("./../assets/audio/click.ogg");
-const selectAudio = new Audio("./../assets/audio/selectAnswer.ogg");
-const correctAudio = new Audio("./../assets/audio/answerCorrect.ogg");
-const wrongAudio = new Audio("./../assets/audio/answerWrong.ogg");
-const resultAudio = new Audio("./../assets/audio/result.ogg");
+const clickAudio = new Audio("./assets/audio/click.ogg");
+const selectAudio = new Audio("./assets/audio/selectAnswer.ogg");
+const correctAudio = new Audio("./assets/audio/answerCorrect.ogg");
+const wrongAudio = new Audio("./assets/audio/answerWrong.ogg");
+const resultAudio = new Audio("./assets/audio/result.ogg");
 
 const showIntroPage = () => {
   introPage.removeClass("hide");
