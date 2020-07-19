@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+
+  <body class="paused">
+    <header class="header d-flex align-items-center">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <a href="#" class="bold d-none d-md-block">Daily Trivia</a>
+        <p>SCORE: <span class="bold">0000014</span></p>
+        <a href="#" class="d-flex align-items-center"
+          ><img src="./assets/img/icon-reset.png" alt="reset" class="mr-2" />
+          <p class="d-none d-md-block">Reset</p>
+        </a>
+      </div>
+    </header>
+    <main class="main d-flex justify-content-center align-items-center py-3">
+      <div id="play" class="container align-self-start">
+        <div class="main__header d-flex justify-content-between">
+          <div class="main__header__timer d-flex align-items-start">
+            <a
+              href="./play-paused.html"
+              class="btn btn--timer d-flex align-items-center justify-content-between"
+            >
+              <div
+                class="btn--timer__counter d-flex justify-content-center align-items-center"
+              >
+                <div class="btn--timer__counter__text bold">
+                  00:00:40
+                </div>
+              </div>
+              <img
+                src="./assets/img/icon-pause.png"
+                class="btn--timer__counter__icon"
+                alt="Pause"
+              />
+            </a>
+          </div>
+
+          <div
+            class="main__header__button d-flex justify-content-end align-self-start"
+          >
+            <a
+              href="#"
+              class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1"
+            >
+              <img src="./assets/img/icon-hint.png" alt="Hint" />
+            </a>
+            <a
+              href="#"
+              class="btn btn--setting btn--red d-flex justify-content-center align-items-center mx-1"
+            >
+              <img src="./assets/img/icon-setting.png" alt="Setting" />
+            </a>
+            <div class="main__header__button--hover">
+              <a
+                href="#"
+                class="btn btn--setting btn--red d-flex justify-content-center align-items-center mx-1 mb-3"
+              >
+                <img src="./assets/img/icon-close.png" alt="Setting" />
+              </a>
+              <a
+                href="#"
+                class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1 mb-3"
+              >
+                <img src="./assets/img/icon-sound-on.png" alt="Setting" />
+              </a>
+              <a
+                href="#"
+                class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1 mb-3"
+              >
+                <img src="./assets/img/icon-asc.png" alt="Setting" />
+              </a>
+              <a
+                href="#"
+                class="btn btn--setting btn--yellow d-flex justify-content-center align-items-center mx-1 mb-3"
+              >
+                <img src="./assets/img/icon-desc.png" alt="Setting" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="main__content pt-3">
+          <div class="play">
+            <div class="play__question__number">
+              10 / 10
+            </div>
+            <a href="#" class="play__report d-flex align-items-center">
+              <img src="./assets/img/icon-flag.png" alt="report" class="mr-2" />
+              <p class="play__report__text">REPORT</p>
+            </a>
+
+            <div class="card d-flex mb-3">
+              <div
+                class="card__body d-flex align-items-center justify-content-center px-3"
+              >
+                <p class="play__question-text mt-4">
+                  A Bellini cocktail is made up of sparkling wine (traditionally
+                  Prosecco) and WHAT?
+                </p>
+              </div>
+            </div>
+            <div class="answer row px-lg-5">
+              <div class="col-12 col-md-6 mt-3">
+                <a
+                  href="#"
+                  class="btn btn--answer btn--yellow d-flex align-items-center justify-content-center"
+                >
+                  <div class="btn--icon"></div>
+                  <span class="bold">
+                    A. Banana Shake
+                  </span>
+                </a>
+              </div>
+              <div class="col-12 col-md-6 mt-3">
+                <a
+                  href="#"
+                  class="btn btn--correct btn--answer btn--yellow d-flex align-items-center justify-content-center"
+                >
+                  <div class="btn--icon"></div>
+                  <span class="bold">
+                    A. Banana Shake
+                  </span>
+                </a>
+              </div>
+              <div class="col-12 col-md-6 mt-3">
+                <a
+                  href="#"
+                  class="btn btn--wrong btn--answer btn--yellow d-flex align-items-center justify-content-center"
+                >
+                  <div class="btn--icon"></div>
+                  <span class="bold">
+                    A. Banana Shake
+                  </span>
+                </a>
+              </div>
+              <div class="col-12 col-md-6 mt-3">
+                <a
+                  href="#"
+                  class="btn btn--disabled btn--answer btn--yellow d-flex align-items-center justify-content-center"
+                >
+                  <div class="btn--icon"></div>
+                  <span class="bold">
+                    A. Banana Shake
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal d-flex align-items-center justify-content-center">
+      <div class="modal__body d-flex">
+        <div
+          class="modal__body__content py-5 px-3 d-flex justify-content-center flex-column align-items-center"
+        >
+          <h1 class="bold mb-3">
+            You’re about to reset the game. All your progress will be lost. Do
+            you want to proceed?
+          </h1>
+          <div class="my-3 d-flex justify-content-between modal__button">
+            <a
+              href="./play.html"
+              class="btn btn--primary btn--yellow d-flex justify-content-center align-items-center"
+            >
+              <p class="btn__text btn__text--yellow">YES</p>
+            </a>
+            <a
+              href="./play.html"
+              class="btn btn--primary btn--green d-flex justify-content-center align-items-center"
+            >
+              <p class="btn__text btn__text--green">NO</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
