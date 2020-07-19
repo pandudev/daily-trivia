@@ -3,11 +3,11 @@ moment = require("moment");
 
 // url
 const categoriesUrl =
-  "http://fairshake.com.au/trivia-game/administrator/api/category/read.php";
+  "https://fairshake.com.au/trivia-game/administrator/api/category/read.php";
 const questionUrl =
-  "http://fairshake.com.au/trivia-game/administrator/api/question/questions-set.php";
+  "https://fairshake.com.au/trivia-game/administrator/api/question/questions-set.php";
 const answerUrl =
-  "http://fairshake.com.au/trivia-game/administrator/api/question/set-statistic.php";
+  "https://fairshake.com.au/trivia-game/administrator/api/question/set-statistic.php";
 
 // data
 let categoriesInit = [];
@@ -197,7 +197,9 @@ const getCategories = () => {
   $.ajax({
     url: categoriesUrl,
     dataType: "json",
-  }).done(setCategories);
+  })
+    .done(setCategories)
+    .fail((err) => console.log(err));
 };
 
 const setCategories = (data) => {
