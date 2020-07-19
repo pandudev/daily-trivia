@@ -168,7 +168,7 @@ const showResultPage = () => {
   gameTitle.removeClass("hide").addClass("mx-auto");
   headerScore.addClass("hide");
   resetButton.addClass("hide");
-  headerLogo.removeClass("hide").addClass("mx-auto");
+  headerLogo.removeClass("hide");
 
   showScore();
 };
