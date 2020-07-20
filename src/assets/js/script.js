@@ -180,6 +180,8 @@ const showResultPage = () => {
 
 const loading = () => {
   $("#startButton").addClass("hide");
+  $("#loader").removeClass("hide");
+
   if (loadingTime == 0) loadingTime = 1;
   const bar = $("#loadingBar");
   const progress = () => {
@@ -564,6 +566,7 @@ $("document").ready(() => {
     if (thisBtn.hasClass("btn--disabled")) {
       e.preventDefault();
     } else {
+      pauseTimer();
       thisBtn
         .parent()
         .siblings()
@@ -576,7 +579,6 @@ $("document").ready(() => {
       setTimeout(() => {
         thisBtn.removeClass("animate__heartBeat");
         if (selectedAnswer == currentQuestion.correct_answer) {
-          pauseTimer();
           playCorrect();
           thisBtn.addClass("btn--correct");
 
@@ -595,6 +597,7 @@ $("document").ready(() => {
             .removeClass("btn--disabled");
           wrongAnswerClicked();
         }
+        startTimer();
       }, 1000);
     }
   });
