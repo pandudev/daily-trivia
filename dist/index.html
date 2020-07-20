@@ -16,12 +16,14 @@
       <div
         class="container-fluid d-flex justify-content-between align-items-center"
       >
-        <a id="backButton" class="d-md-none"
+        <a id="backButton" class="d-md-none hide"
           ><img src="./assets/img/icon-back.png" alt="back"
         /></a>
         <p id="gameTitle" class="bold">Daily Trivia</p>
-        <p id="headerScore">SCORE: <span class="bold">000000</span></p>
-        <a id="resetButton" class="d-flex align-items-center"
+        <p id="headerScore" class="hide">
+          SCORE: <span class="bold">000000</span>
+        </p>
+        <a id="resetButton" class="d-flex align-items-center hide"
           ><img src="./assets/img/icon-reset.png" alt="reset" class="mr-2" />
           <p class="d-none d-md-block">Reset</p>
         </a>
@@ -31,7 +33,7 @@
       <div class="main__header container d-flex justify-content-between">
         <div
           id="headerLogo"
-          class="d-flex align-items-center justify-content-center main__header__logo"
+          class="d-flex align-items-center justify-content-center main__header__logo hide"
         >
           <img
             src="./assets/img/logo-trivia.png"
@@ -46,7 +48,7 @@
         </div>
         <div
           id="timerButton"
-          class="main__header__timer d-flex align-items-start"
+          class="main__header__timer d-flex align-items-start hide"
         >
           <a
             class="btn btn--timer d-flex align-items-center justify-content-between"
@@ -73,7 +75,8 @@
           </a>
         </div>
         <div
-          class="main__header__button d-flex justify-content-end align-self-start ml-auto"
+          id="headerButton"
+          class="main__header__button d-flex justify-content-end align-self-start ml-auto hide"
         >
           <a
             id="hintButton"
@@ -162,7 +165,7 @@
         </div>
       </div>
 
-      <div id="category" class="container flex-fill d-flex flex-column">
+      <div id="category" class="container flex-fill d-flex flex-column hide">
         <div class="main__title my-3">
           <h2 id="dateText"></h2>
           <h1 class="d-none d-md-block">SELECT CATEGORY</h1>
@@ -188,7 +191,7 @@
         </div>
       </div>
 
-      <div id="play" class="container flex-fill d-flex flex-column">
+      <div id="play" class="container flex-fill d-flex flex-column hide">
         <div class="main__content pt-3">
           <div class="play">
             <div id="questionNumber" class="play__question__number"></div>
@@ -211,7 +214,7 @@
         </div>
       </div>
 
-      <div id="result" class="container flex-fill d-flex flex-column">
+      <div id="result" class="container flex-fill d-flex flex-column hide">
         <div class="main__content container py-3">
           <div
             class="row flex-column justify-content-center align-items-center"
@@ -344,6 +347,8 @@
       </div>
     </div>
 
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

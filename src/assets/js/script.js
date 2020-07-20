@@ -59,6 +59,7 @@ let categoriesList = $("#categoriesList");
 let timerText = $("#timerText");
 let settingMenu = $("#settingMenu");
 let headerScore = $("#headerScore");
+let headerButton = $("#headerButton");
 let scoreText = $("#resultScoreText");
 let correctText = $("#correctText");
 let wrongText = $("#wrongText");
@@ -131,6 +132,8 @@ const showCategoryPage = () => {
   hintButton.addClass("hide");
   resetButton.addClass("hide");
   gameTitle.removeClass("hide");
+  headerButton.removeClass("hide");
+  headerLogo.removeClass("mx-auto");
 };
 
 const showPlayPage = () => {
@@ -156,6 +159,7 @@ const showPlayPage = () => {
 };
 
 const showResultPage = () => {
+  playResult();
   introPage.addClass("hide");
   categoryPage.addClass("hide");
   playPage.addClass("hide");
@@ -168,7 +172,8 @@ const showResultPage = () => {
   gameTitle.removeClass("hide").addClass("mx-auto");
   headerScore.addClass("hide");
   resetButton.addClass("hide");
-  headerLogo.removeClass("hide");
+  headerLogo.removeClass("hide").addClass("mx-auto");
+  headerButton.addClass("hide");
 
   showScore();
 };
@@ -266,7 +271,6 @@ const showCategories = () => {
 };
 
 const getQuestions = (cat) => {
-  questionsInit = [];
   $.ajax({
     url: questionUrl,
     dataType: "json",
@@ -276,6 +280,8 @@ const getQuestions = (cat) => {
 };
 
 const setQuestions = (data) => {
+  questionsInit = [];
+  console.log(data);
   data.records.forEach((question) => {
     questionsInit.push(question);
   });
@@ -292,6 +298,8 @@ const getRandomQuestions = () => {
   shuffledQuestions.slice(0, questionsPerGame).forEach((question) => {
     questions.push(question);
   });
+
+  console.log(questions);
 };
 
 const playGame = () => {
@@ -511,40 +519,37 @@ $("document").ready(() => {
   getCategories();
   showIntroPage();
 
-  openSettingButton.click(() => {
+  $(".btn").click(() => {
     playClick();
+  });
+
+  openSettingButton.click(() => {
     settingMenu.removeClass("hide");
   });
 
   closeSettingButton.click(() => {
-    playClick();
     settingMenu.addClass("hide");
   });
 
   toggleSoundButton.click(() => {
     toggleSound();
-    playClick();
   });
 
   startButton.click(() => {
     showCategoryPage();
-    playClick();
   });
 
   nextIndexButton.click(() => {
-    playClick();
     categoriesIndex++;
     showCategories();
   });
 
   prevIndexButton.click(() => {
-    playClick();
     categoriesIndex--;
     showCategories();
   });
 
   categoriesList.on("click", ".category__selector", (e) => {
-    playClick();
     getQuestions(e.currentTarget.id);
   });
 
@@ -555,70 +560,79 @@ $("document").ready(() => {
       .text();
 
     let thisBtn = $(e.currentTarget).children(".btn--answer");
-    thisBtn.removeClass("animate__bounceIn");
-    thisBtn.addClass("animate__heartBeat");
 
-    setTimeout(() => {
-      thisBtn.removeClass("animate__heartBeat");
-      if (selectedAnswer == currentQuestion.correct_answer) {
-        pauseTimer();
-        playCorrect();
-        thisBtn.addClass("btn--correct");
-        thisBtn.parent().siblings().children().addClass("btn--disabled");
-        setTimeout(() => {
-          correctAnswerClicked();
-        }, 1000);
-      } else {
-        playWrong();
-        $(e.currentTarget).children(".btn--answer").addClass("btn--wrong");
-        wrongAnswerClicked();
-      }
-    }, 1000);
+    if (thisBtn.hasClass("btn--disabled")) {
+      e.preventDefault();
+    } else {
+      thisBtn
+        .parent()
+        .siblings()
+        .addBack()
+        .children()
+        .addClass("btn--disabled");
+      thisBtn.removeClass("animate__bounceIn");
+      thisBtn.addClass("animate__heartBeat");
 
-    $(".btn--answer").removeClass("btn--dim");
+      setTimeout(() => {
+        thisBtn.removeClass("animate__heartBeat");
+        if (selectedAnswer == currentQuestion.correct_answer) {
+          pauseTimer();
+          playCorrect();
+          thisBtn.addClass("btn--correct");
+
+          setTimeout(() => {
+            correctAnswerClicked();
+          }, 1000);
+        } else {
+          playWrong();
+          thisBtn.addClass("btn--wrong");
+          thisBtn
+            .parent()
+            .siblings()
+            .children()
+            .not(".btn--wrong")
+            .not(".btn--dim")
+            .removeClass("btn--disabled");
+          wrongAnswerClicked();
+        }
+      }, 1000);
+    }
   });
 
   replayButton.click(() => {
-    playClick();
     showCategoryPage();
   });
 
   hintButton.click(() => {
-    playClick();
     hintAnswers.forEach((hint) => {
       let x = $(`span:contains(${hint})`);
-      x.parent().addClass("btn--dim");
+      x.parent().addClass("btn--disabled btn--dim");
     });
   });
 
   resetButton.click(() => {
-    playClick();
     showResetModal();
     stopTimer();
   });
 
   resetYesButton.click(() => {
-    playClick();
     closeModal();
     showCategoryPage();
     resetTimer();
   });
 
   resetNoButton.click(() => {
-    playClick();
     closeModal();
     startTimer();
   });
 
   timerButton.click(() => {
-    playClick();
     showPauseModal();
     stopTimer();
     showPauseModal();
   });
 
   resumeButton.click(() => {
-    playClick();
     closeModal();
     startTimer();
   });
@@ -627,5 +641,24 @@ $("document").ready(() => {
     playResult();
     closeModal();
     showResultPage();
+  });
+
+  // tooltips
+  tippy("#timerButton", {
+    content: "pause",
+    theme: "custom",
+    placement: "bottom-end",
+  });
+
+  tippy("#hintButton", {
+    content: "hint wrong answer",
+    theme: "custom",
+    placement: "bottom",
+  });
+
+  tippy("#openSettingButton", {
+    content: "setting",
+    theme: "custom",
+    placement: "bottom",
   });
 });

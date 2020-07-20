@@ -12,6 +12,21 @@ body {
   }
 }
 
+a {
+  cursor: pointer;
+}
+
 .hide {
   display: none !important;
+}
+
+.tippy-box[data-theme~="custom"] {
+  background-color: $black;
+  color: $white;
+  font-weight: bold;
+  padding: 10px;
+
+  & > .tippy-arrow::before {
+    border-bottom-color: $black;
+  }
 }

@@ -3163,8 +3163,19 @@ body.modal {
   position: fixed;
   width: 100vw; }
 
+a {
+  cursor: pointer; }
+
 .hide {
   display: none !important; }
+
+.tippy-box[data-theme~="custom"] {
+  background-color: #333333;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px; }
+  .tippy-box[data-theme~="custom"] > .tippy-arrow::before {
+    border-bottom-color: #333333; }
 
 p,
 h1,
@@ -3250,7 +3261,6 @@ h6 {
   .btn--dim {
     opacity: 0.5; }
   .btn--disabled {
-    opacity: 0.5;
     pointer-events: none; }
   .btn__text {
     color: #fff;
